@@ -2,18 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400:500;600;700&display=swap");
 /*--- font for headings---*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
-/*--font-awesome---*/
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+ 
 /*--component library CDN ---*/
 @import url("https://binary-ui.netlify.app/components/CDN.css");
 
-/*---Google icon---*/
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Round");
-
-/* @import url(../CSS/footer.css); */
+ 
 
 * {
   padding: 0;
@@ -26,12 +19,12 @@
   --small-text: "Open Sans", sans-serif;
   --headings-color: #333333;
   --text-color: #353535f3;
-  --background-color: #f7f7f7;
+  --background-color: #e1dfdf;
   --text-white: #eceaea;
   --primary-color: #0e72c9;
   --primary-hover: #0662b3;
   --footer-background: #00000015;
-  --box-shadow: 0px 0px 10px 4px #00000015;
+  --box-shadow: 0px 0px 10px 4px rgb(0 0 0 / 5%);
   --smooth-shadow: 0.9px 2.8px 4.2px #00000067, 2.2px 6.7px 5.3px #0000005d,
     4.1px 12.5px 10px #00000009, 7.4px 22.3px 17.9px #0000000b,
     13.8px 41.8px 33.4px #0000000d, 33px 100px 80px #00000012;
@@ -65,7 +58,7 @@ p,
 li,
 a,
 span,
-button {
+button, .paragraph {
   font-family: var(--small-text);
 }
 
@@ -107,3 +100,14 @@ body {
   margin-bottom: 1rem;
 }
 
+.main-bar {
+  margin-left: 28rem;
+}
+
+.navigation {
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 6rem;
+  border: 0;
+  background-color: var(--white-color);
+}

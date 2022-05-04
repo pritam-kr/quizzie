@@ -1,0 +1,35 @@
+.navigation {
+    justify-content: space-between;
+    padding: 0 3rem;
+}
+
+.container {
+    width: 100%;
+    min-height: 88vh;
+}
+
+.form {
+    background-color: var(--white-color);
+}
+
+
+.login-nav {
+    border-bottom: 1px solid var(--border-color);
+    min-height: 6rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 0;
+    background-color: var(--white-color);
+    padding: 0 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+
+.forgot-password {
+    margin-top: 1rem;
+}
+
+.forgot-password a {
+    color: var(--text-color);
+}

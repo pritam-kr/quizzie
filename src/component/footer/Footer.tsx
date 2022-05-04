@@ -1,9 +1,11 @@
-import React from "react";
+ 
+import * as FaIcons from "react-icons/fa"
+import "./footer.css"
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <p className="paragraph">Code By Pritam </p>
+      <p className="text-md ">Code By Pritam </p>
       <ul>
         <li className="lists ">
           <a
@@ -12,7 +14,7 @@ const Footer = () => {
             className="links"
             rel="noreferrer"
           >
-            <i className="fab fa-twitter"></i>
+             <FaIcons.FaTwitter />
           </a>
         </li>
         <li className="lists ">
@@ -22,7 +24,7 @@ const Footer = () => {
             className="links"
             rel="noreferrer"
           >
-            <i className="fab fa-linkedin"></i>
+             <FaIcons.FaLinkedin/>
           </a>
         </li>
         <li className="lists">
@@ -32,7 +34,7 @@ const Footer = () => {
             className="links"
             rel="noreferrer"
           >
-            <i className="fab fa-instagram"></i>
+             <FaIcons.FaInstagram />
           </a>
         </li>
         <li className="lists ">
@@ -41,7 +43,7 @@ const Footer = () => {
             target="_blank "
             className="links "
           >
-            <i className="fab fa-github "></i>
+             <FaIcons.FaGithub />
           </a>
         </li>
       </ul>
