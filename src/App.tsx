@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { Sidebar } from "./component/index"
+import { Home, Login, Signup, Rules } from "./page/index"
 import './App.css';
+import { Toaster } from 'react-hot-toast';
+
+
+
 
 function App() {
+
+  const { pathname } = useLocation()
+
+  const SideMenu = () => {
+    if (pathname !== "/login" && pathname !== "/signup") {
+      return <Sidebar />
+    }
+    return null
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SideMenu />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/rule" element={<Rules />} />
+      </Routes>
+      <Toaster position={"top-right"}  />
     </div>
   );
 }

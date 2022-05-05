@@ -1,0 +1,30 @@
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 6rem;
+    border: 0;
+    background-color: var(--white-color);
+    padding: 0 1rem;
+}
+
+.topbar .topbar-logo {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 6rem;
+        border: 0;
+        background-color: var(--white-color);
+        padding: 0 1rem;
+    }
+
+    .topbar .topbar-logo {
+        display: block;
+        align-items: center;
+    }
+}

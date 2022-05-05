@@ -1,0 +1,65 @@
+.side-bar {
+    border-right: 1px solid var(--border-color);
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    width: 28rem;
+    height: 100%;
+    padding: 1rem 2rem 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .side-bar-header {
+    text-align: left;
+    padding: 1rem 0;
+  }
+  
+  .sidebar-menu{
+      margin-top: 2rem;
+  }
+  .sidebar-menu ul .sidebar-links {
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    color: var(--headings-color);
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar-icon {
+    color: var(--primary-color);
+    margin-right: 1rem;
+  }
+  
+  .sidebar-footer .logout-link {
+    display: flex;
+    align-items: center;
+  }
+  .sidebar-footer .user-name {
+    text-transform: capitalize;
+  }
+
+
+  .sidebar-menu .quiz-category-name{
+      font-size: 1.2rem ;
+      margin-bottom: .5rem;
+      color: var(--headings-color);
+      list-style-type: circle ;
+  }
+
+  .sub-menu{
+      padding-left: 5rem;
+      margin: 1rem 0;
+      
+  }
+
+
+  @media screen and (max-width: 767px) {
+    .side-bar{
+      width: 0;
+      overflow: hidden;
+    }
+  }

@@ -1,0 +1,64 @@
+.user-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 1.5rem;
+  }
+  
+  .user-profile-Section {
+    background-color: var(--white-color);
+    display: flex;
+    gap: 10px;
+    border-radius: 10px;
+    padding: 2rem;
+  }
+  .user-image {
+    border-radius: 20px;
+  }
+  
+  .avatar-ex-lagre {
+    width: 15rem;
+    height: 15rem;
+  }
+  /* .userimage-wrapper{
+  } */
+  
+  .userbio-wrapper {
+    padding: 1.5rem;
+  }
+  
+  .bio {
+    margin-top: 1rem;
+  }
+  
+  .achievement-wrapper {
+    margin: 1rem 0;
+  }
+  
+  .categories-section {
+    border-radius: 10px;
+    padding: 2rem;
+    background-color: var(--white-color);
+  }
+  .category-wrapper {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .quiz-card {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1rem;
+    width: 100%;
+    box-shadow: none;
+    background-color: #fff;
+    max-width: fit-content;
+  }
+  
+  .quiz-name {
+    margin-bottom: 1rem;
+  }
+  .quiz-description {
+    margin-top: 1rem;
+  }
