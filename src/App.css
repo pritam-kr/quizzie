@@ -104,6 +104,19 @@ body {
   margin-left: 28rem;
 }
 
+@media screen and (max-width: 767px) {
+  .side-bar{
+    display: none;
+    width: 0;
+    overflow: hidden;
+  }
+  .main-bar {
+    margin-left: 0;
+  }
+
+  
+}
+
 .navigation {
   align-items: center;
   justify-content: flex-end;

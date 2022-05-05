@@ -1,0 +1,8 @@
+.rules{
+    margin-bottom: 1rem;
+}
+.rules .rule-list{
+    margin-bottom: .8rem;
+    margin-left: 2rem;
+    list-style-type: circle;
+}

@@ -1,5 +1,4 @@
-import React from "react";
-
+ 
 const Navigation = () => {
   return (
     <nav className="navigation">
@@ -7,7 +6,7 @@ const Navigation = () => {
         <ul className="center">
           <li>
             <a href="/Pages/login.html" className="links">
-              <button className="btn btn-primary">Login</button>
+            <button className="btn btn-primary">Login</button>
             </a>
           </li>
           <li>

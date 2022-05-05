@@ -31,10 +31,6 @@ const Sidebar = () => {
                                 <li className="quiz-category-name">HTML Quiz</li>
                             </ul>
                         </Link>
-                        <Link to="e">
-                            <li className="sidebar-links"> <FaIcons.FaHandsHelping className="sidebar-icon" /> Help & Support
-                            </li>
-                        </Link>
                     </ul>
                 </div>
 

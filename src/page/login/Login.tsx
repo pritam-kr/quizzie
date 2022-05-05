@@ -1,17 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Footer} from "../../component/index"
-import "./login.css"
-import * as FaIcons from "react-icons/fa"
-
-
+import { Link } from "react-router-dom";
+import { Footer } from "../../component/index";
+import "./login.css";
+import * as FaIcons from "react-icons/fa";
 
 const Login = () => {
     return (
         <>
-            <nav className='login-nav'> <div className="logo">
-                <h1><Link to="/">Quizzie</Link></h1>
-            </div></nav>
+            <nav className="login-nav">
+                {" "}
+                <div className="logo">
+                    <h1>
+                        <Link to="/">Quizzie</Link>
+                    </h1>
+                </div>
+            </nav>
 
             {/* Login Container Start */}
             <div className="container login-container center">
@@ -22,17 +24,30 @@ const Login = () => {
 
                     <div className="input-row">
                         <label className="input-label form-label">Email: </label>
-                        <input type="email" placeholder="example@gmail.com" className="input primary-input" />
+                        <input
+                            type="email"
+                            placeholder="example@gmail.com"
+                            className="input primary-input"
+                        />
                     </div>
 
                     <div className="input-row">
-                        <label className="input-label form-label">Password: <span className="reqired">*</span></label>
-                        <input type="password" placeholder="********" className="input required-input" required />
+                        <label className="input-label form-label">
+                            Password: <span className="reqired">*</span>
+                        </label>
+                        <input
+                            type="password"
+                            placeholder="********"
+                            className="input required-input"
+                            required
+                        />
                     </div>
 
                     <div className="input-row">
-                        <label className="input-label"><input type="checkbox" className="input checkbox-input" />
-                            <span className="checkbox-text">Remember me</span></label>
+                        <label className="input-label">
+                            <input type="checkbox" className="input checkbox-input" />
+                            <span className="checkbox-text">Remember me</span>
+                        </label>
                     </div>
 
                     <div className="input-row">
@@ -40,14 +55,13 @@ const Login = () => {
                     </div>
 
                     <div className="form-footer">
-                        <Link to="/signup">
-                            <p className="paragraph">Create an Account.  <FaIcons.FaChevronRight /></p>
+                        <Link to="/signup" >
+                            <p className="paragraph center">
+                                Create an Account.
+                                <FaIcons.FaChevronRight />
+                            </p>
                         </Link>
-
-                         
-
                     </div>
-
                 </form>
             </div>
             {/* Login Container End */}
@@ -56,9 +70,7 @@ const Login = () => {
             <Footer />
             {/*footer section end */}
         </>
-    )
-}
+    );
+};
 
-
-
-export { Login }
+export { Login };
