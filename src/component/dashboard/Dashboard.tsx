@@ -1,13 +1,15 @@
-
 import "./dashboard.css"
 import { QuizCard, Profile } from "../../component/index"
-
-
+import { useAuthContext } from "../../context"
+ 
 const Dashboard = () => {
+
+    const {state: {uId}} = useAuthContext()
+
     return (
         <div className="user-dashboard">
 
-            <Profile />
+           {uId &&  <Profile />}
 
             <div className="categories-section"  >
                 <h1 className="Larger-heading section-title">Quiz Categories</h1>

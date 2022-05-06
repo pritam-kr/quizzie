@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom"
+import { useAuthContext } from "../../context"
 import "./topbar.css"
 
 
 const Topbar = () => {
+
+  const { state: { uId } } = useAuthContext()
+
   return (
     <nav className="topbar">
 
@@ -14,14 +18,13 @@ const Topbar = () => {
       <div>
         <ul className="center">
           <li>
-            <Link to="/login" className="links"><button className="btn btn-primary">Login</button></Link>
+            {uId ? <li>
+              <Link to="" className="center">
+                <img src="https://res.cloudinary.com/dhqxln7zi/image/upload/v1651587060/user_ma86ud.png" className="avatar img-responsive img-rounded avatar-ex-small" alt="user-avatar" />
+              </Link>
+            </li> : <Link to="/login" className="links"><button className="btn btn-primary">Login</button></Link>}
           </li>
-          {/* <li>
-                            <Link to="" className="center">
-                                <span className="user-name links">Pritam@123</span><img src="/assets/user.png"
-                                    className="avatar img-responsive img-rounded avatar-ex-small" alt="user-avatar" />
-                            </Link>
-                        </li> */}
+
         </ul>
       </div>
 

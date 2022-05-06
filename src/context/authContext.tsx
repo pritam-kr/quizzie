@@ -1,56 +1,31 @@
-import React, { createContext, useContext, useReducer } from "react";
-
-import { typeChildren } from "../allTypes/authTypes";
-
-type InitialStateTypes = {
-  loading: boolean;
-  error: string;
-  uId: string;
-  isAuthenticated: boolean;
-};
-
-type AuthenticationAction = {
-  type: "SET_AUTHENTICATION";
-  payload: {
-    isAuthenticated: boolean;
-    uid: string;
-  };
-};
-
-type ErrorAction = {
-  type: "SET_ERROR";
-  payload: {
-    error: string;
-  };
-};
-
-type InitializeAction = {
-  type: "INITIALIZE";
-};
-
-type AuthAction = AuthenticationAction | InitializeAction | ErrorAction;
-
-type AuthContextType = {
-  state: InitialStateTypes;
-  dispatch: React.Dispatch<AuthAction>;
-};
-
-
+import { onAuthStateChanged, User } from "firebase/auth";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
+import { typeChildren, InitialStateTypes, AuthAction, AuthContextType } from "../allTypes/authTypes";
+import { auth } from "../firebase/firebase";
 
 
 const authContext = createContext({} as AuthContextType);
+
+const userInfo = JSON.parse(localStorage.getItem("user") || "{}") || null
+const uId = JSON.parse(localStorage.getItem("uid") || "{}") || null
 
 const initialState = {
   loading: false,
   error: "",
   uId: "",
   isAuthenticated: false,
+  user:  ""
 };
 
 const authReducer = (state: InitialStateTypes, action: AuthAction) => {
   switch (action.type) {
-    case "SET_ERROR":
-      return { ...state, error: "Got error" };
+
+    case "SET_AUTHENTICATION":
+
+      return { ...state, uId: action.payload }
+
+    case "USER_LOGOUT":
+      return { ...state, uId: action.payload, }
 
     default:
       return state;
@@ -59,6 +34,19 @@ const authReducer = (state: InitialStateTypes, action: AuthAction) => {
 
 const AuthContextProvider = ({ children }: typeChildren) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        localStorage.setItem("user", JSON.stringify(user));
+        (user?.uid && localStorage.setItem("uid", JSON.stringify(user?.uid)))
+        dispatch({ type: "SET_AUTHENTICATION", payload:   user.uid  })
+      }
+
+    })
+
+  }, [])
+
 
   return (
     <authContext.Provider value={{ state, dispatch }}>

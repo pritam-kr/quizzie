@@ -4,8 +4,9 @@ import { Sidebar } from "./component/index"
 import { Home, Login, Signup, Rules } from "./page/index"
 import './App.css';
 import { Toaster } from 'react-hot-toast';
+import { PrivateRoute } from './route/PrivateRoute';
 
-
+  
 
 
 function App() {
@@ -26,9 +27,9 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/rule" element={<Rules />} />
+        <Route path="/rule" element={<PrivateRoute> <Rules /> </PrivateRoute>} />
       </Routes>
-      <Toaster position={"top-right"}  />
+      <Toaster position={"top-right"} />
     </div>
   );
 }
