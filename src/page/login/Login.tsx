@@ -1,9 +1,49 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Footer } from "../../component/index";
 import "./login.css";
 import * as FaIcons from "react-icons/fa";
+import { useAuth } from "../../hooks/index"
+import React, { useState } from "react";
+import toast from "react-hot-toast";
+import { regEx } from "../../utils";
+
+
+//Types for login inputs
+export type loginTypes = {
+    email: string
+    password: string
+}
 
 const Login = () => {
+
+    const { loginForm } = useAuth()
+
+    //Types for location 
+    type LocationState = {
+        from: {
+            pathname: string;
+        };
+    };
+
+    const location = useLocation();
+    const { from } = (location.state as LocationState) || { from: { pathname: "/" } };
+
+
+
+    const [loginFormData, setLoginFormData] = useState<loginTypes>({ email: "", password: "" })
+
+    const loginFormHandler = (e: React.MouseEvent) => {
+        e.preventDefault()
+        if (loginFormData.email === "" || loginFormData.password === "") {
+            toast.error("Input field can not be empty.", { position: "top-right" })
+        } else if (!regEx.test(loginFormData.email)) {
+            toast.error("Enter valid Email.", { position: "top-right" })
+        } else {
+            loginForm(loginFormData, from)
+        }
+
+    }
+
     return (
         <>
             <nav className="login-nav">
@@ -23,11 +63,19 @@ const Login = () => {
                     </div>
 
                     <div className="input-row">
-                        <label className="input-label form-label">Email: </label>
+                        <label className="input-label form-label">Email:* </label>
                         <input
+                            value={loginFormData.email}
                             type="email"
                             placeholder="example@gmail.com"
                             className="input primary-input"
+                            onChange={(event) =>
+                                setLoginFormData((prev) => ({
+                                    ...prev,
+                                    email: event.target.value,
+                                }))
+                            }
+                            required
                         />
                     </div>
 
@@ -36,22 +84,23 @@ const Login = () => {
                             Password: <span className="reqired">*</span>
                         </label>
                         <input
+                            value={loginFormData.password}
                             type="password"
                             placeholder="********"
                             className="input required-input"
                             required
+
+                            onChange={(event) =>
+                                setLoginFormData((prev) => ({
+                                    ...prev,
+                                    password: event.target.value,
+                                }))
+                            }
                         />
                     </div>
 
                     <div className="input-row">
-                        <label className="input-label">
-                            <input type="checkbox" className="input checkbox-input" />
-                            <span className="checkbox-text">Remember me</span>
-                        </label>
-                    </div>
-
-                    <div className="input-row">
-                        <button className="btn btn-primary btn-submit">Login</button>
+                        <button className="btn btn-primary btn-submit" onClick={(e) => loginFormHandler(e)}>Login</button>
                     </div>
 
                     <div className="form-footer">

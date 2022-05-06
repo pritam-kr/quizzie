@@ -6,8 +6,7 @@ import { useState } from "react";
 import { regEx } from "../../utils";
 import { useAuth } from "../../hooks/index"
 import toast from "react-hot-toast";
-
-
+import {SignupUserType} from "../../allTypes/formTypes"
 
 
 const Signup = () => {
@@ -22,24 +21,10 @@ const Signup = () => {
    
   const { from } = (location.state as LocationState) || { from: { pathname: "/" } };
   const { signupForm } = useAuth()
-
-   
- 
-  //Types for form data
-  type SignupUser = {
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-    checked: boolean
-  };
-
   const [showPassword, setShowPassword] = useState(false);
 
 
-
-  const [signupFormData, setSignupFormData] = useState<SignupUser>({
+  const [signupFormData, setSignupFormData] = useState<SignupUserType>({
     firstName: "",
     lastName: "",
     email: "",
@@ -90,7 +75,6 @@ const Signup = () => {
   return (
     <>
       <nav className="login-nav">
-        {" "}
         <div className="logo">
           <h1>
             <Link to="/">Quizzie</Link>

@@ -1,0 +1,11 @@
+.userProfile-section {
+    text-align: center;
+}
+
+.userProfile-section .userimage-wrapper{
+    background-color: transparent;
+}
+
+.user-email{
+    text-transform: capitalize;
+}
