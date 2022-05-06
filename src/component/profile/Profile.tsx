@@ -1,8 +1,9 @@
+ 
 import "./profile.css"
  
 
-const Profile = () => {
 
+const Profile = ( ) => {
   return (
      <div className="user-profile-Section">
     <div className="userimage-wrapper">

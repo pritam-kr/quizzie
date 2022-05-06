@@ -9,12 +9,14 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebase";
 import { getErrorMessage } from "../utils";
 import { useAuthContext } from "../context/index";
-import {loginTypes} from "../allTypes/formTypes"
+import { loginTypes } from "../allTypes/formTypes"
+import { useFirebase } from "./useFirebase";
 
 export const useAuth = () => {
   const navigate = useNavigate();
 
   const { dispatch } = useAuthContext();
+  const { createUserCollection } = useFirebase()
 
 
   // Signup form service
@@ -29,15 +31,21 @@ export const useAuth = () => {
   ) => {
     const email = formData.email;
     const password = formData.password;
+    const firstName= formData.firstName;
+    const lastName = formData.lastName;
 
     try {
+
       const { user } = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
 
+     if(user){
+      await createUserCollection(user,{firstName, lastName})
       navigate(from, { replace: true });
+     }
     } catch (error) {
       if (
         getErrorMessage(error) ===
@@ -62,7 +70,7 @@ export const useAuth = () => {
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
 
-      if(result){
+      if (result) {
         toast.success("Successfully User Login", { position: "top-right" })
         navigate(from, { replace: true });
       }
@@ -88,10 +96,11 @@ export const useAuth = () => {
   //Logout user service
   const logOutHandler = () => {
     signOut(auth);
-    dispatch({ type: "USER_LOGOUT", payload: "",  });
+    dispatch({ type: "USER_LOGOUT", payload: "", });
     toast.success("user logout", { position: "top-right" });
     localStorage.removeItem("user")
     localStorage.removeItem("uid")
+    localStorage.removeItem("username")
     navigate("/")
   };
 
