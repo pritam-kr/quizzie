@@ -32,7 +32,12 @@ export type UserLogout = {
   payload: string;
 };
 
-export type AuthAction = AuthenticationAction | InitializeAction | UserLogout;
+export type LoadingAction = {
+  type: "SET_LOADING";
+  payload: boolean
+}
+
+export type AuthAction = AuthenticationAction | InitializeAction | UserLogout | LoadingAction;
 
 export type AuthContextType = {
   state: InitialStateTypes;
