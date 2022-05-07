@@ -33,3 +33,8 @@
 .forgot-password a {
     color: var(--text-color);
 }
+
+
+.login-form{
+    position: relative;
+}

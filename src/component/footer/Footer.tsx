@@ -39,7 +39,7 @@ const Footer = () => {
         </li>
         <li className="lists ">
           <a
-            href="https://github.com/pritam-kr"
+            href="https://github.com/pritam-kr/quizzie"
             target="_blank "
             className="links "
           >

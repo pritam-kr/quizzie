@@ -1,8 +1,5 @@
- 
 import "./profile.css"
  
-
-
 const Profile = ( ) => {
   return (
      <div className="user-profile-Section">

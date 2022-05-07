@@ -34,6 +34,8 @@ export const useAuth = () => {
     const firstName= formData.firstName;
     const lastName = formData.lastName;
 
+    dispatch({type: "SET_LOADING", payload: true})
+    
     try {
 
       const { user } = await createUserWithEmailAndPassword(
@@ -44,9 +46,11 @@ export const useAuth = () => {
 
      if(user){
       await createUserCollection(user,{firstName, lastName})
+      dispatch({type: "SET_LOADING", payload: false})
       navigate(from, { replace: true });
      }
     } catch (error) {
+      dispatch({type: "SET_LOADING", payload: false})
       if (
         getErrorMessage(error) ===
         "Firebase: Error (auth/email-already-in-use)."
@@ -64,8 +68,11 @@ export const useAuth = () => {
 
   // Login form service
   const loginForm = async (formData: loginTypes, from: { pathname: string }) => {
+    
     const email = formData.email;
     const password = formData.password;
+
+    dispatch({type: "SET_LOADING", payload: true})
 
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
@@ -73,9 +80,13 @@ export const useAuth = () => {
       if (result) {
         toast.success("Successfully User Login", { position: "top-right" })
         navigate(from, { replace: true });
+        dispatch({type: "SET_LOADING", payload: false})
       }
 
     } catch (error) {
+
+      dispatch({type: "SET_LOADING", payload: false})
+
       if (getErrorMessage(error) === "Firebase: Error (auth/wrong-password).") {
         toast.error(
           "Entered email and password credentials doesn't match. Please try again.",
