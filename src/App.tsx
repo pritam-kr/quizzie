@@ -27,7 +27,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/rule" element={<PrivateRoute> <Rules /> </PrivateRoute>} />
+        <Route path="/rule/:category" element={<PrivateRoute> <Rules /> </PrivateRoute>} />
         <Route path="/profile" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
       </Routes>
       <Toaster position={"top-right"} />
