@@ -1,49 +1,52 @@
+.signup-container .error {
+  height: 2em;
+  margin: 0.5rem 0;
+}
 
-  
-  .signup-container .error {
-    height: 2em;
-    margin: 0.5rem 0;
-  }
-  
-  .signup-container .form {
-  
-    margin: 0 1rem;
-  }
-  
-  .signup-container .form .input {
-    padding: 0.9rem 1rem;
-  }
-  
-  .signup-container label {
-    font-size: 1.3rem;
-  }
-  
-  .signup-container::placeholder {
-    font-size: 1.2rem;
-    padding: 0;
-  }
-  
-  .confirm-Password-input {
-    position: relative;
-  }
-  
-  .eye-icon {
-    position: absolute;
-    top: 0;
+.signup-container .form {
+
+  margin: 0 1rem;
+}
+
+.signup-container .form .input {
+  padding: 0.9rem 1rem;
+}
+
+.signup-container label {
+  font-size: 1.3rem;
+}
+
+.signup-container::placeholder {
+  font-size: 1.2rem;
+  padding: 0;
+}
+
+.confirm-Password-input {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 0;
   cursor: pointer;
-    right: 1rem;
-    top: 1.5rem;
-  }
-  
-  .inputs-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  .checkbox-row label{
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-  }
-  
+  right: 1rem;
+  top: 1.5rem;
+}
+
+.inputs-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.checkbox-row label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+
+.signup-form {
+  position: relative;
+}

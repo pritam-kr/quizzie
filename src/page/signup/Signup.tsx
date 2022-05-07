@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Footer } from "../../component/index";
+import { Footer, Loader } from "../../component/index";
 import * as FaIcons from "react-icons/fa";
 import "./signup.css";
 import { useState } from "react";
@@ -7,9 +7,13 @@ import { regEx } from "../../utils";
 import { useAuth } from "../../hooks/index"
 import toast from "react-hot-toast";
 import {SignupUserType} from "../../allTypes/formTypes"
+import { useAuthContext } from "../../context";
 
 
 const Signup = () => {
+
+  const {state:{loading}} = useAuthContext()
+  
 
   type LocationState = {
     from: {
@@ -84,11 +88,10 @@ const Signup = () => {
 
       {/* Login Container Start */}
       <div className="container signup-container center">
-        <form className="form">
+         <form className="form signup-form">
+           {loading && <Loader />}
           <div className="form-header">
             <h2 className="form-heading">Signup </h2>
-
-
           </div>
 
           <div className="inputs-wrapper">
