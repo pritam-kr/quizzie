@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { Topbar, Profile, Footer } from "../../component/index"
 import "./rules.css"
  
 const Rules = () => {
+
+    const {category} = useParams()
+
     return (
         <div className="main-bar">
             <Topbar />
@@ -20,10 +23,10 @@ const Rules = () => {
                         </ul>
                         
                         <div className="rules-btn-wrapper">
-                            <Link to="/quiz"> 
+                            <Link to="/"> 
                             <button className="btn btn-secondary margin-r">Back</button> 
                             </Link>
-                            <Link to="/quiz"><button className="btn btn-primary">Start</button></Link>
+                            <Link to="/"><button className="btn btn-primary">Start</button></Link>
                         </div>
                     </div>
 

@@ -10,13 +10,6 @@ export type InitialStateTypes = {
   isAuthenticated: boolean;
 };
 
-// export type AuthenticationAction = {
-//   type: "SET_AUTHENTICATION";
-//   payload: {
-//     isAuthenticated?: boolean;
-//     uid: string;
-//   };
-// };
 
 export type AuthenticationAction = {
   type: "SET_AUTHENTICATION";

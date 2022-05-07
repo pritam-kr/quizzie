@@ -44,7 +44,7 @@ export const useFirebase = () => {
     }
   };
 
-  // 
+  // Getting current users from firebase 
   const getUserInfo = async (uid: string) => {
     if (!uid) return;
 

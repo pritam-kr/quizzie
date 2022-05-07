@@ -1,21 +1,36 @@
 
+import { useNavigate } from "react-router-dom"
+import { CategoryTypes } from "../dashboard/Dashboard"
+import "./quizCard.css"
 
-const QuizCard = () => {
+type props = {
+    category: CategoryTypes
+}
+
+
+
+const QuizCard: React.FC<props> = ({ category }) => {
+
+    const navigate = useNavigate()
+
+    const playNowHandler = (categoryTitle:string) => {
+        navigate(`/rule/${categoryTitle}`)
+    }
+
     return (
         <div className="vertical-card quiz-card">
-            <img className="card-img" src="https://res.cloudinary.com/dhqxln7zi/image/upload/v1651586989/html_ceoupt.jpg" alt="" />
+            <img className="card-img" src= {category.thumbnail} alt={category.title} />
             <div className="card-content">
-                <h2 className="card-title">Marvel Quiz</h2>
-                <h3 className="card-author">by Pritam Kumar</h3>
+                <h2 className="card-title">{category.title}</h2>
+                 
                 <p className="paragraph quiz-description">
-                    Visit ten places on our planet that are undergoing the
-                    biggest changes today.
+                     {category.about}
                 </p>
             </div>
             <div className="card-footer">
                 <div className="card-footer-buttons">
-                    <a href="/Pages/rules.html"> <button className="btn btn-primary btn-play">Play
-                        Now</button> </a>
+                     <button className="btn btn-primary btn-play" onClick={() => playNowHandler(category.title)}>Play
+                        Now</button>  
                 </div>
                 <div className="card-footer-icons-wrapper">
                     <p className="footer-icon">

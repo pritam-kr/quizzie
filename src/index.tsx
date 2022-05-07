@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { AuthContextProvider } from './context/authContext';
+import { AuthContextProvider, } from './context/authContext';
+import { QuizContextProvider } from "./context/index"
 
 
 const root = ReactDOM.createRoot(
@@ -14,7 +15,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
-        <App />
+        <QuizContextProvider >
+          <App />
+        </QuizContextProvider>
       </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>
