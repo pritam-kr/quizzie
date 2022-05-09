@@ -1,0 +1,1 @@
+export const abcd : string[] = ["a", "b", "c", "d"]
