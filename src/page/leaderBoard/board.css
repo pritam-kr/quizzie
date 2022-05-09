@@ -1,0 +1,30 @@
+.board-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    margin: 0 auto;
+
+}
+
+.board-box {
+    border: .5px solid rgba(0, 0, 0, 0.192);
+    padding: .5rem;
+    color: var(--headings-color);
+}
+
+.board-box p {
+    font-weight: 600;
+    color: var(--headings-color);
+    font-size: 1.2rem;
+}
+
+.leaderboard-section {
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+.board-heading{
+    background-color: rgba(0, 0, 0, 0.043);
+    border-radius: 0;
+    
+}
