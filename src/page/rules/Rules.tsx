@@ -19,10 +19,10 @@ const Rules = () => {
                         <h1 className="Larger-heading section-title">Quiz Rules for {category}</h1>
                         <ul className="rules">
                             <li className="rule-list text-md">The Total number of question is Five.</li>
-                            <li className="rule-list text-md">Each question is of Five point.</li>
-                            <li className="rule-list text-md">You'll get One minute to answer all questions.</li>
-                            <li className="rule-list text-md">If you gives all answered correctly. You'll be get Money Prize.</li>
-                            <li className="rule-list text-md">If you're not score 50% of question. You'll be kick out.</li>
+                            <li className="rule-list text-md">Each question is of 10 point.</li>
+                            <li className="rule-list text-md">No time limit to solve question</li>
+                            <li className="rule-list text-md">If you gives all answered correctly. You'll  in top on leaderboard.</li>
+                            <li className="rule-list text-md">Happy Learning </li>
                         </ul>
 
                     </div>
