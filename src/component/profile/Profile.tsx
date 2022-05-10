@@ -1,9 +1,10 @@
-import { useAuthContext } from "../../context";
+import { useAuthContext, useQuizContext } from "../../context";
 import "./profile.css"
  
 const Profile = ( ) => {
 
   const {user} =  useAuthContext()
+  const {totalScoreOfUser} = useQuizContext()
 
   return (
      <div className="user-profile-Section">
@@ -20,6 +21,7 @@ const Profile = ( ) => {
         <p>
           <span className="user-name">{user?.email}</span>
         </p>
+        {totalScoreOfUser === 0 ? <p className="user-name" style={{marginTop: "1rem"}}>Your Total Score is 0 </p> : <p className="user-name" style={{marginTop: "1rem"}}>Your Total score is {totalScoreOfUser}</p>}
       </div>
     </div>
   </div>

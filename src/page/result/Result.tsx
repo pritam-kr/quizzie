@@ -115,7 +115,7 @@ const Result = () => {
               className="btn btn-primary"
               onClick={(event) => leaderBoardHandler(event)}
             >
-              Submit to Leader Board
+              Submit
             </button>
           </div>
         </div>

@@ -4,14 +4,25 @@ import { QuizContextType} from "..//allTypes/quizTypes"
 import { categoriesRef, db, quizRef } from "../firebase/firebase"
 import { DocumentData, getDocs, collection, onSnapshot } from "firebase/firestore";
 import {quizReducer,  initialState} from "../reducer/index"
+import { useAuthContext } from "./authContext";
  
 
 const quizContext = createContext<QuizContextType>({} as QuizContextType)
 
  
 const QuizContextProvider = ({ children }: typeChildren) => {
-    const [quizState, quizDispatch] = useReducer(quizReducer, initialState)
+
+
+
+    const [quizState, quizDispatch] = useReducer(quizReducer, initialState) 
     const [leaderBoard, setLeaderBoard] = useState<any>([])
+
+    const {user} = useAuthContext()
+
+    //Data for specific user
+    const data = leaderBoard.filter((each: {email:string}) => each.email === user.email)
+    //Total score of the Specific user
+    const totalScoreOfUser = data.reduce((sum: number, currentValue: any ) => sum + currentValue.score, 0)
 
 
     // Getting categories from firebase 
@@ -71,7 +82,7 @@ const QuizContextProvider = ({ children }: typeChildren) => {
 
 
     return (
-        <quizContext.Provider value={{ quizState, quizDispatch, leaderBoard }}>
+        <quizContext.Provider value={{ quizState, quizDispatch, leaderBoard,  totalScoreOfUser}}>
             {children}
         </quizContext.Provider>
     )

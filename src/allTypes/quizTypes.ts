@@ -83,5 +83,6 @@ export type QuizzesActions = InitializeAction | LoadingAction | GetCategoriesAct
 export type QuizContextType = {
     quizState: QuizInitialStateType;
     quizDispatch: React.Dispatch<QuizzesActions>;
-    leaderBoard: any
+    leaderBoard: any;
+    totalScoreOfUser: number
 };
