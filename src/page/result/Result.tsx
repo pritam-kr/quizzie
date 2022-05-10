@@ -41,7 +41,10 @@ const Result = () => {
 
   const leaderBoardHandler = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+
   ) => {
+
+    event.preventDefault()
     const leaderBoardInfo = {
       email: user.email,
       firstName: user.firstName,
@@ -51,7 +54,9 @@ const Result = () => {
 
     setLeaderBoardData(leaderBoardInfo);
     navigate("/");
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000)
   };
 
   const scoreHandler = () => {
