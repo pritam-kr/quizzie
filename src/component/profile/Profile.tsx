@@ -1,6 +1,10 @@
+import { useAuthContext } from "../../context";
 import "./profile.css"
  
 const Profile = ( ) => {
+
+  const {user} =  useAuthContext()
+
   return (
      <div className="user-profile-Section">
     <div className="userimage-wrapper">
@@ -12,9 +16,9 @@ const Profile = ( ) => {
     </div>
     <div className="userbio-wrapper">
       <div className="user-info">
-        <h1>Pritam Kumar 🏆</h1>
+        <h1> {user?.firstName} {user?.lastName} 🏆</h1>
         <p>
-          <span className="user-name">pritam@1234</span>
+          <span className="user-name">{user?.email}</span>
         </p>
       </div>
     </div>
