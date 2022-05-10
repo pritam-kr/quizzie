@@ -3,6 +3,9 @@ import { useQuizContext } from "../../context";
 import "./board.css";
 const Board = () => {
     const { leaderBoard } = useQuizContext();
+    const sortedData = [...leaderBoard].sort((a:any, b:any) => b.score - a.score)
+
+    
     return (
         <div className="main-bar">
             <Topbar />
@@ -25,7 +28,7 @@ const Board = () => {
                             </div>
                         </div>
 
-                        {leaderBoard?.map(
+                        { sortedData?.map(
                             (each: {
                                 firstName: string;
                                 lastName: string;
