@@ -46,6 +46,11 @@ const Login = () => {
 
     }
 
+
+    const credentialHandler = () => {
+        setLoginFormData({email: "pritamvr9@gmail.com", password: "123456" })
+    }
+
     return (
         <>
             <nav className="login-nav">
@@ -113,6 +118,9 @@ const Login = () => {
                                 <FaIcons.FaChevronRight />
                             </p>
                         </Link>
+
+                        <p className="paragraph credential" onClick={() => credentialHandler()}>Guest Credential</p>
+
                     </div>
                 </form>
             </div>
