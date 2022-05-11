@@ -16,7 +16,7 @@ export const useAuth = () => {
   const navigate = useNavigate();
 
   const { dispatch } = useAuthContext();
-  const { createUserCollection } = useFirebase()
+  const { createUserCollection} = useFirebase()
 
 
   // Signup form service
@@ -64,6 +64,8 @@ export const useAuth = () => {
         });
       }
     }
+
+     
   };
 
   // Login form service
@@ -102,6 +104,8 @@ export const useAuth = () => {
         });
       }
     }
+
+   
   };
 
   //Logout user service
@@ -113,6 +117,7 @@ export const useAuth = () => {
     localStorage.removeItem("uid")
     localStorage.removeItem("username")
     navigate("/")
+    window.location.reload();
   };
 
   return { signupForm, loginForm, logOutHandler };

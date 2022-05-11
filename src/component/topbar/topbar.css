@@ -12,6 +12,13 @@
     display: none;
 }
 
+.topbar div .nav-links{
+    display: none ;
+    font-size: medium;
+    color: var(--headings-color);
+    margin-right: 1rem;
+}
+
 @media screen and (max-width: 767px) {
     .topbar {
         display: flex;
@@ -27,4 +34,10 @@
         display: block;
         align-items: center;
     }
+
+    .topbar div .nav-links{
+        display: block;
+    }
+
+     
 }

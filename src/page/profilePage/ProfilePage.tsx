@@ -1,27 +1,12 @@
-import React, { useEffect, useState } from 'react'
 import { useAuthContext } from '../../context'
-import { useFirebase } from '../../hooks'
 import { Topbar, Footer } from "../../component/index"
 import "./profilePage.css"
+import { useAuth } from '../../hooks'
 
 const ProfilePage = () => {
 
-  const { getUserInfo } = useFirebase()
-  const { state: { uId } } = useAuthContext()
-  const [user, setUser] = useState({ email: "", firstName: "", lastName: "" })
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  async function hh() {
-    const { email, firstName, lastName } = await getUserInfo(uId) || {}
-    setUser({ email: email, firstName: firstName, lastName: lastName })
-
-  }
-
-
-  useEffect(() => {
-    hh()
-  }, [uId])
-
+  const {user} = useAuthContext()
+  const {logOutHandler} = useAuth()
 
   return (
     <>
@@ -40,10 +25,13 @@ const ProfilePage = () => {
             </div>
             <div className="userbio-wrapper">
               <div className="user-info">
-                <h1>Name:-  {user?.firstName} {user?.lastName} 🏆</h1>
+                <h1>Name:- {user?.firstName} {user?.lastName}🏆</h1>
                 <p>
-                  <span className="user-name user-email">Email:-  <span className='user-name'>{user?.email}</span></span>
+                  <span className="user-name user-email">Email:- {user?.email} <span className='user-name'> </span></span>
+
                 </p>
+                <button className='btn btn-secondary btn-logout' onClick={() => logOutHandler()}>Logout</button>
+
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+
+import { Link, NavLink } from "react-router-dom";
 import "./sidebar.css"
 import * as FaIcons from "react-icons/fa"
 import { useAuth } from "../../hooks/index"
@@ -9,12 +9,19 @@ import { useAuthContext } from "../../context";
 const Sidebar = () => {
 
     const { logOutHandler } = useAuth()
-    const {state: {uId}} = useAuthContext()
+    const { state: { uId } } = useAuthContext()
 
 
     const signOutHandler = () => {
         logOutHandler()
     }
+
+
+
+    const getActiveStyle = ({ isActive }: any) => ({
+        color: isActive ? "var(--primary-color)" : ""
+    })
+
 
     return (
         <div className="side-bar">
@@ -28,20 +35,24 @@ const Sidebar = () => {
 
                 <div className="sidebar-menu">
                     <ul>
-                        <Link to="/">
-                            <li className="sidebar-links"> <FaIcons.FaHome className="sidebar-icon" /> Home
-                            </li>
-                        </Link>
+                        <NavLink to="/" style={getActiveStyle} className="sidebar-links">
+                            <FaIcons.FaHome className="sidebar-icon" /> Home
 
-                        <Link to="#categories-section">
-                            <li className="sidebar-links">  <FaIcons.FaQuestion className="sidebar-icon" /> Quiz Category</li>
+                        </NavLink>
 
-                            <ul className="sub-menu">
-                                <li className="quiz-category-name">Marvel Quiz</li>
-                                <li className="quiz-category-name">JavaScript Quiz</li>
-                                <li className="quiz-category-name">HTML Quiz</li>
-                            </ul>
-                        </Link>
+                        <NavLink to="/quiz-category" style={getActiveStyle} className="sidebar-links">
+                             <FaIcons.FaQuestion className="sidebar-icon" /> Quiz Category 
+                        </NavLink>
+
+                        <ul className="sub-menu">
+                            <li className="quiz-category-name">Marvel Quiz</li>
+                            <li className="quiz-category-name">JavaScript Quiz</li>
+                            <li className="quiz-category-name">HTML Quiz</li>
+                        </ul>
+
+                        <NavLink to="/leader-board" style={getActiveStyle} className="sidebar-links">
+                             <FaIcons.FaDatabase className="sidebar-icon" /> Leaderboard 
+                        </NavLink>
                     </ul>
                 </div>
 
@@ -49,7 +60,7 @@ const Sidebar = () => {
 
             <div className="sidebar-footer">
                 <img src="https://res.cloudinary.com/dhqxln7zi/image/upload/v1651587060/user_ma86ud.png" className="avatar img-responsive img-rounded avatar-ex-small"
-                    alt="user-avatar" /> {uId ? <span onClick={() => signOutHandler()} className="user-name links">Logout </span> :<Link to="/login"><span className="user-name links">Login </span></Link>}
+                    alt="user-avatar" /> {uId ? <span onClick={() => signOutHandler()} className="user-name links">Logout </span> : <Link to="/login"><span className="user-name links">Login </span></Link>}
             </div>
 
         </div>

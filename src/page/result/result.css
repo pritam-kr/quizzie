@@ -1,0 +1,14 @@
+.correct-ans{
+    background-color: var(--correct-ans);
+    color: var(--white-color);
+}
+
+.wrong-ans{
+    background-color: var(--wrong-ans);
+    color: var(--white-color);
+}
+
+.user-dashboard .btn-score-check{
+    padding: .6rem .8rem;
+    font-size: small;
+}

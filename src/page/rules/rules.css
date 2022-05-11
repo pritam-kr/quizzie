@@ -6,3 +6,10 @@
     margin-left: 2rem;
     list-style-type: circle;
 }
+
+.rule-section{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

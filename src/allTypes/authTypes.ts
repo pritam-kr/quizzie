@@ -1,3 +1,5 @@
+ 
+
 //type of context children
 export type typeChildren = {
   children: React.ReactNode | string | number | boolean | React.ReactFragment | JSX.Element | null | undefined;
@@ -32,7 +34,15 @@ export type LoadingAction = {
 
 export type AuthAction = AuthenticationAction | InitializeAction | UserLogout | LoadingAction;
 
+
+type userType = {
+  email: string;
+  firstName: string;
+  lastName: string
+}
+
 export type AuthContextType = {
   state: InitialStateTypes;
   dispatch: React.Dispatch<AuthAction>;
+  user: userType
 };

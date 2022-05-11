@@ -9,3 +9,13 @@
 .user-email{
     text-transform: capitalize;
 }
+
+.userbio-wrapper .btn-logout{
+    margin: 1rem 0;
+    color: var(--headings-color);
+    font-weight: 600;
+    padding: 0.6rem .8rem;
+    
+    cursor: pointer;
+    
+}
