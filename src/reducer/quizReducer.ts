@@ -33,6 +33,9 @@ export const quizReducer = (state: QuizInitialStateType, action: QuizzesActions)
         case "SET_ANSWERS": 
         return {...state, answers: action.payload}
 
+        case "RESET_SELECT_OPTION":
+        return {...state, selectedOption: []}
+
         default:
             return state;
     }

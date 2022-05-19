@@ -13,11 +13,13 @@ const Result = () => {
   const { user } = useAuthContext();
 
   const {
-    quizState: { currentQuizzes, selectedOption }
+    quizState: { currentQuizzes, selectedOption }, quizDispatch
   } = useQuizContext();
+
 
   const getScore = () => {
     let score = 0;
+
 
     for (let i = 0; i < currentQuizzes.length; i++) {
       if (currentQuizzes[i].ans === selectedOption[i]) {
@@ -27,6 +29,9 @@ const Result = () => {
 
     return score;
   };
+
+
+  const result = getScore();
 
   type eachQuestionType = {
     question: string;
@@ -49,20 +54,19 @@ const Result = () => {
       email: user.email,
       firstName: user.firstName,
       lastName: user.lastName,
-      score: score,
+      score: result,
     };
 
     setLeaderBoardData(leaderBoardInfo);
+
+    quizDispatch({ type: "RESET_SELECT_OPTION" })
+
     navigate("/");
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000)
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 2000)
   };
 
-  const scoreHandler = () => {
-    const result = getScore();
-    setScore(result);
-  };
 
   return (
     <div className="main-bar">
@@ -71,14 +75,9 @@ const Result = () => {
       <div className="user-dashboard">
         <div className="categories-section rule-section">
           <h1 className="Larger-heading section-title space-between">
-            Result: {score}/50
+            Result: {result}/50
             <div>
-              <button
-                className="btn btn-primary btn-score-check"
-                onClick={() => scoreHandler()}
-              >
-                Score Check
-              </button>
+
             </div>
           </h1>
 
@@ -94,16 +93,14 @@ const Result = () => {
                       {eachQuestion.options.map((each, i) => (
                         <li
                           key={i}
-                          className={`${
-                            each === eachQuestion.ans
+                          className={`${each === eachQuestion.ans
                               ? "q-list correct-ans"
                               : "q-list"
-                          }  ${
-                            each === selectedOption[indx] &&
-                            each !== eachQuestion.ans
+                            }  ${each === selectedOption[indx] &&
+                              each !== eachQuestion.ans
                               ? "q-list wrong-ans"
                               : "q-list"
-                          }`}
+                            }`}
                         >
                           <label>{each}</label>
                         </li>
