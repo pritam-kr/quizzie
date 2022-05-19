@@ -71,9 +71,7 @@ export type SelectedOptionType = {
 
 export type ResetSelectOption = {
     type: "RESET_SELECT_OPTION",
-    payload : {
-        selectedOption: []
-    }
+    
 }
 
 

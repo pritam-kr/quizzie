@@ -34,8 +34,6 @@ const Question = () => {
         setCurrentIndex(currentIndex - 1)
         
     }
-
-
     return (
         <div className="main-bar">
             <Topbar />
