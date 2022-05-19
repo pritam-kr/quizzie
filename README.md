@@ -16,13 +16,7 @@ Quizzie a online quiz platform to play some quizzes on random topic.
 - Leader board for All users
 - Five question on each categories
 
- ## Color Reference
-
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| CTA Color | ![#0e72c9](https://via.placeholder.com/10/0e72c9?text=+) #0e72c9 |
-| Primary Color | ![#0e72c9](https://via.placeholder.com/10/0e72c9?text=+) #0e72c9 |
-
+ 
 
 ### Demo
 
