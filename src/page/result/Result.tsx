@@ -62,9 +62,7 @@ const Result = () => {
     quizDispatch({ type: "RESET_SELECT_OPTION" })
 
     navigate("/");
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 2000)
+    
   };
 
 
